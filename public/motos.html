@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINK CFO - Flotte</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="d-flex" id="wrapper">
+        <div id="sidebar-container"></div>
+        <div id="page-content-wrapper">
+            <div id="topbar-container"></div>
+
+            <div class="container-fluid px-4 py-4">
+                
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div>
+                        <h3 class="fw-bold m-0 text-dark">Parc Moto</h3>
+                        <div class="text-muted small">Gestion et maintenance de la flotte</div>
+                    </div>
+                    <button class="btn btn-primary shadow-sm" data-bs-toggle="modal" data-bs-target="#addMotoModal">
+                        <i class="fas fa-plus me-2"></i> Ajouter une Moto
+                    </button>
+                </div>
+
+                <div class="row g-3" id="motos-container">
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-spinner fa-spin fa-2x text-muted"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addMotoModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title fw-bold">Nouvelle Moto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form-add-moto">
+                        <div class="mb-3">
+                            <label class="form-label">Matricule <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control fw-bold text-uppercase" name="matricule" placeholder="CE-123-AB" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Modèle</label>
+                            <input type="text" class="form-control" name="modele" value="TVS HLX 150">
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-3">
+                                <label class="form-label">KM Actuel</label>
+                                <input type="number" class="form-control" name="km_actuel" value="0">
+                            </div>
+                            <div class="col-6 mb-3">
+                                <label class="form-label">Date Achat</label>
+                                <input type="date" class="form-control" name="date_achat">
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/core/ui.js"></script>
+    <script src="js/pages/motos.js"></script>
+</body>
+</html>

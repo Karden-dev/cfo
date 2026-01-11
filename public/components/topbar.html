@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm px-4 py-3">
+    
+    <button class="btn btn-light me-3 text-primary" id="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars fs-5"></i>
+    </button>
+
+    <div class="d-none d-md-flex align-items-center">
+        <h5 class="m-0 fw-bold text-dark" id="page-title">Tableau de Bord</h5>
+        <div class="input-group ms-5" style="width: 300px;">
+            <span class="input-group-text bg-light border-0"><i class="fas fa-search text-muted"></i></span>
+            <input type="text" class="form-control bg-light border-0" placeholder="Rechercher (Client, Moto...)" style="font-size: 0.9rem;">
+        </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0 align-items-center">
+            
+            <li class="nav-item dropdown me-3">
+                <a class="nav-link text-secondary position-relative" href="#" id="navbarDropdownAlerts" role="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-bell fs-5"></i>
+                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger border border-light">
+                        3
+                        <span class="visually-hidden">alertes</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="navbarDropdownAlerts">
+                    <li><h6 class="dropdown-header text-uppercase text-danger fw-bold">Urgences</h6></li>
+                    <li><a class="dropdown-item small" href="/dettes.html"><i class="fas fa-exclamation-circle me-2 text-danger"></i>Dette Afriland (J-1)</a></li>
+                    <li><a class="dropdown-item small" href="#"><i class="fas fa-wrench me-2 text-warning"></i>Vidange Moto 03</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-center small text-primary" href="#">Voir tout</a></li>
+                </ul>
+            </li>
+
+            <div class="vr h-50 mx-2 text-secondary d-none d-lg-block"></div>
+
+            <li class="nav-item dropdown ms-3">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownProfile" role="button" data-bs-toggle="dropdown">
+                    <img src="https://ui-avatars.com/api/?name=DG+Wink&background=0D6EFD&color=fff&size=128" alt="Admin" width="40" height="40" class="rounded-circle shadow-sm me-2">
+                    <div class="d-none d-lg-block text-start">
+                        <span class="d-block fw-bold text-dark small">Le Patron</span>
+                        <span class="d-block text-muted" style="font-size: 0.75rem;">Administrateur</span>
+                    </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="navbarDropdownProfile">
+                    <li><a class="dropdown-item" href="/settings.html"><i class="fas fa-user-cog me-2 text-muted"></i>Mon Compte</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fas fa-list-alt me-2 text-muted"></i>Journal d'activité</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger fw-bold" href="#"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>

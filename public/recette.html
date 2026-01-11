@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WINK CFO - Nouvelle Recette</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="d-flex" id="wrapper">
+        
+        <div id="sidebar-container"></div>
+
+        <div id="page-content-wrapper">
+            
+            <div id="topbar-container"></div>
+
+            <div class="container-fluid px-4 py-4">
+                
+                <div class="d-flex align-items-center mb-4">
+                    <a href="/dashboard.html" class="btn btn-outline-secondary me-3 rounded-circle">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                    <div>
+                        <h3 class="fw-bold m-0 text-success">Nouvelle Recette</h3>
+                        <div class="text-muted small">Encaisser de l'argent dans la caisse WINK</div>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-4">
+                                
+                                <form id="form-recette">
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold text-uppercase small text-muted">Origine de l'argent</label>
+                                        <div class="row g-3">
+                                            <div class="col-md-4">
+                                                <input type="radio" class="btn-check" name="famille" id="fam-exploitation" value="EXPLOITATION" checked onchange="updateFormDisplay()">
+                                                <label class="btn btn-outline-success w-100 p-3 h-100 d-flex flex-column align-items-center justify-content-center gap-2" for="fam-exploitation">
+                                                    <i class="fas fa-motorcycle fs-3"></i>
+                                                    <span>Livraison / Service</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="radio" class="btn-check" name="famille" id="fam-finance" value="FINANCE" onchange="updateFormDisplay()">
+                                                <label class="btn btn-outline-warning w-100 p-3 h-100 d-flex flex-column align-items-center justify-content-center gap-2" for="fam-finance">
+                                                    <i class="fas fa-university fs-3"></i>
+                                                    <span>Emprunt / Apport</span>
+                                                </label>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="radio" class="btn-check" name="famille" id="fam-regul" value="REGULARISATION" onchange="updateFormDisplay()">
+                                                <label class="btn btn-outline-primary w-100 p-3 h-100 d-flex flex-column align-items-center justify-content-center gap-2" for="fam-regul">
+                                                    <i class="fas fa-hand-holding-usd fs-3"></i>
+                                                    <span>Remboursement Avance</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr class="text-muted my-4">
+
+                                    <div class="row g-3">
+                                        
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Montant (FCFA) <span class="text-danger">*</span></label>
+                                            <div class="input-group input-group-lg">
+                                                <input type="number" class="form-control fw-bold text-success" id="montant" placeholder="0" required min="100">
+                                                <span class="input-group-text bg-light">FCFA</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Date de réception</label>
+                                            <input type="date" class="form-control form-control-lg" id="date_transaction" required>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label fw-bold">Moyen de paiement</label>
+                                            <div class="d-flex gap-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="moyen_paiement" id="pay-cash" value="CASH" checked>
+                                                    <label class="form-check-label" for="pay-cash"><i class="fas fa-money-bill-wave text-success me-1"></i> Espèces (Main à main)</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="moyen_paiement" id="pay-om" value="ORANGE_MONEY">
+                                                    <label class="form-check-label" for="pay-om"><i class="fas fa-mobile-alt text-warning me-1"></i> Orange Money</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="moyen_paiement" id="pay-momo" value="MTN_MOMO">
+                                                    <label class="form-check-label" for="pay-momo"><i class="fas fa-mobile-alt text-primary me-1"></i> MTN MoMo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <label class="form-label fw-bold" id="label-desc">Description <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" id="description" placeholder="Ex: Versement courses Zone Nord" required>
+                                            <div class="form-text" id="hint-desc">Détaillez pour faciliter la comptabilité.</div>
+                                        </div>
+
+                                        <input type="hidden" id="categorie" value="Recette Livraison">
+
+                                    </div>
+
+                                    <div class="d-grid mt-5">
+                                        <button type="submit" class="btn btn-success btn-lg shadow-sm" id="btn-save">
+                                            <i class="fas fa-check-circle me-2"></i> Enregistrer la Recette
+                                        </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <script src="js/core/ui.js"></script>
+    <script src="js/pages/recette.js"></script>
+
+</body>
+</html>
